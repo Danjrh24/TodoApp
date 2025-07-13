@@ -47,7 +47,7 @@ const getTodos = ( filter = Filters.All ) => {
  * @param {String} description 
  */
 
-const addTodo = ( description ) => {
+export const addTodo = ( description ) => {
     if ( !description ) throw new Error('Description is required');
     state.todos.push ( new Todo(description) );
 }
@@ -102,5 +102,6 @@ export default {
     initStore,
     loadStore,
     setFilter,
+    state,
     toggleTodo,
 }
