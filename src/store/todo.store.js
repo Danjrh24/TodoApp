@@ -1,6 +1,6 @@
 import { Todo } from "../todos/models/todo.model";
 
-const Filters = {
+export const Filters = {
     All: 'all',
     Completed: 'Completed',
     Pending: 'Pending'
@@ -26,6 +26,11 @@ const loadStore = () => {
     throw new Error('Not implemented');
 }
 
+/**
+ * 
+ * @param {Object} filter Ejemplo: Filters.All
+ * @returns 
+ */
 
 const getTodos = ( filter = Filters.All ) => {
     switch( filter ) {
@@ -33,10 +38,10 @@ const getTodos = ( filter = Filters.All ) => {
             return [...state.todos];
         
         case Filters.Completed:
-            return state.todos.filter( todo >= todo.done );
+            return state.todos.filter( todo => todo.done );
 
         case Filters.Pending:
-            return state.todos.filter( todo >= !todo.done );
+            return state.todos.filter( todo => !todo.done );
 
         default:
             throw new Error(`Option ${ filter } is not valid.`);
@@ -77,7 +82,7 @@ const deleteTodo = ( todoId ) => {
 }
 
 const deleteCompleted = () => {
-    state.todos = state.todos.filter ( todo => todo.done)
+    state.todos = state.todos.filter ( todo => !todo.done)
 }
 
 /**
@@ -97,6 +102,7 @@ export default {
     addTodo,
     deleteCompleted,
     deleteTodo,
+    Filters,
     getCurrentFilter,
     getTodos,
     initStore,

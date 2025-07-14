@@ -1,6 +1,7 @@
 import todoStore from '../store/todo.store';
 import html from './app.html?raw';
 import { renderTodos } from './use-cases';
+import { Filters } from '../store/todo.store';
 import { addTodo } from '../store/todo.store';
 import { Todo } from './models/todo.model';
 
@@ -35,6 +36,7 @@ export const App = ( elementId ) => {
     //Referencias HTML
     const newDescriptionInput = document.querySelector( elementIDs.NewTodoInput );
     const todoListUL = document.querySelector( elementIDs.TodoList );
+    const footerList = document.querySelector( elementIDs.footerList );
     //Listeners 
     newDescriptionInput.addEventListener('keydown', (event)=> {
         if ( event.keyCode !== 13 ) return;
@@ -56,4 +58,21 @@ export const App = ( elementId ) => {
         }
         displayTodos();
     } );
+
+    footerList.addEventListener( 'click', ( event ) =>{
+    event.stopPropagation();
+    console.log({event});
+    if( event.target.className === 'clear-completed' ) {
+        todoStore.deleteCompleted();
+    }else if ( event.target.className === 'selected filtro' ) {
+        todoStore.getTodos();
+    } else if ( event.target.className === 'filtro completed' ) {
+        todoStore.setFilter( Filters.Completed );
+    } else if ( event.target.className === 'filtro pending' ) {
+        todoStore.setFilter( Filters.Pending );
+    }
+    displayTodos();
+    })
+
+
 }
