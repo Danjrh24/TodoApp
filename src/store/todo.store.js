@@ -69,11 +69,11 @@ const toggleTodo = ( todoId ) => {
 
 /**
  * 
- * @param {String} todoId 
+ * @param {String} todoId  
  */
 
 const deleteTodo = ( todoId ) => {
-    state.todos = state.todos.filter ( todo => todoId !== todoId )
+    state.todos = state.todos.filter ( todo => todo.id !== todoId )
 }
 
 const deleteCompleted = () => {

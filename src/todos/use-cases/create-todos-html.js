@@ -2,7 +2,7 @@ import { Todo } from "../models/todo.model";
 
 /**
  * 
- * @param {Todo} todo 
+ * @param { Todo }  todo 
  */
 
 
@@ -27,6 +27,4 @@ export const  createTodoHtml = ( todo ) => {
         liElement.classList.add('completed');
 
     return liElement;
-
-
 }

@@ -2,14 +2,13 @@ import todoStore from '../store/todo.store';
 import html from './app.html?raw';
 import { renderTodos } from './use-cases';
 import { addTodo } from '../store/todo.store';
-import { handleAddToDo } from './use-cases/handle-add-todo';
 import { Todo } from './models/todo.model';
 
 //Id del contenedor de los todos (<ul></ul>)
 const elementIDs = {
     TodoList: '.todo-list',
     NewTodoInput: '#new-todo-input',
-    toggleInput: '.toggle',
+    footerList: '.footer',
 } 
 
 /**
@@ -27,7 +26,7 @@ export const App = ( elementId ) => {
 
     //Cuando la funcion App() se llama
     (() =>{
-        const app = document.createElement('div');
+        const app = document.createElement( 'div' );
         app.innerHTML = html;
         document.querySelector( elementId ).append( app );
         displayTodos();
@@ -47,9 +46,14 @@ export const App = ( elementId ) => {
     });
 
     todoListUL.addEventListener( 'click', ( event ) => {
+        event.preventDefault();
+        event.stopPropagation();
         const elementFather = event.target.closest( '[data-id]' );
-        todoStore.toggleTodo( elementFather.getAttribute( 'data-id' ) );
+        if(event.target.className === "destroy"){
+            todoStore.deleteTodo( elementFather.getAttribute( 'data-id' ) );
+        }else{
+            todoStore.toggleTodo( elementFather.getAttribute( 'data-id' ) );
+        }
         displayTodos();
     } );
-
 }
