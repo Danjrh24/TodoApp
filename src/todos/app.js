@@ -3,10 +3,13 @@ import html from './app.html?raw';
 import { renderTodos } from './use-cases';
 import { addTodo } from '../store/todo.store';
 import { handleAddToDo } from './use-cases/handle-add-todo';
+import { Todo } from './models/todo.model';
 
 //Id del contenedor de los todos (<ul></ul>)
 const elementIDs = {
     TodoList: '.todo-list',
+    NewTodoInput: '#new-todo-input',
+    toggleInput: '.toggle',
 } 
 
 /**
@@ -19,11 +22,8 @@ export const App = ( elementId ) => {
 
     const displayTodos = () => {
         const todos = todoStore.getTodos( todoStore.getCurrentFilter() );
-        renderTodos( elementIDs.TodoList, todos )
+        renderTodos( elementIDs.TodoList, todos );
     }
-
-
-
 
     //Cuando la funcion App() se llama
     (() =>{
@@ -31,8 +31,25 @@ export const App = ( elementId ) => {
         app.innerHTML = html;
         document.querySelector( elementId ).append( app );
         displayTodos();
-        const addTodoInput = document.querySelector('#new-todo-input');
-        addTodoInput.addEventListener('keydown', (e)=>handleAddToDo(e, displayTodos)  );
-    })()
+    })();
+
+    //Referencias HTML
+    const newDescriptionInput = document.querySelector( elementIDs.NewTodoInput );
+    const todoListUL = document.querySelector( elementIDs.TodoList );
+    //Listeners 
+    newDescriptionInput.addEventListener('keydown', (event)=> {
+        if ( event.keyCode !== 13 ) return;
+        if ( event.target.value.trim().length === 0 ) return;
+
+        todoStore.addTodo( event.target.value );
+        displayTodos();
+        event.target.value = '';
+    });
+
+    todoListUL.addEventListener( 'click', ( event ) => {
+        const elementFather = event.target.closest( '[data-id]' );
+        todoStore.toggleTodo( elementFather.getAttribute( 'data-id' ) );
+        displayTodos();
+    } );
 
 }

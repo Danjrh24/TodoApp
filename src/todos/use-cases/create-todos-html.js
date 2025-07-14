@@ -6,7 +6,7 @@ import { Todo } from "../models/todo.model";
  */
 
 
-export const createTodoHtml = ( todo ) => {
+export const  createTodoHtml = ( todo ) => {
     if ( !todo ) throw new Error ('A TODO object is required');
 
     const html = 
