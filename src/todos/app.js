@@ -70,7 +70,7 @@ export const App = ( elementId ) => {
     footerList.addEventListener( 'click', ( event ) =>{
     event.stopPropagation();
     event.preventDefault();
-    console.log({event});
+    footerList.event.classList.add('selected')
     if( event.target.className === 'clear-completed' ) {
         todoStore.deleteCompleted();
     }else if ( event.target.className === 'filtro completed' ) {

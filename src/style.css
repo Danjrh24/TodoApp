@@ -8,6 +8,7 @@ button {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	border-color: none;
 	background: none;
 	font-size: 100%;
 	vertical-align: baseline;
@@ -329,6 +330,7 @@ body {
 	margin: 3px;
 	padding: 3px 7px;
 	text-decoration: none;
+	transition: all .3s ease-in-out;
 	border: 1px solid transparent;
 	border-radius: 3px;
 }
@@ -347,10 +349,11 @@ html .clear-completed:active {
 	position: relative;
 	text-decoration: none;
 	cursor: pointer;
+	transition: all .3s ease-in-out;
 }
 
 .clear-completed:hover {
-	text-decoration: underline;
+	border-bottom: 1px solid rgba(175, 47, 47, 0.2);
 }
 
 .info {
