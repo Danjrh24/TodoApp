@@ -250,7 +250,6 @@ body {
 	background-color: #818181;
 	z-index: 20;
 	opacity: 1;
-
 }
 
 .todo-list {
@@ -267,7 +266,7 @@ body {
 	width: 40px;
 	height: 40px;
 	margin: auto 0;
-	font-size: 30px;
+	font-size: 24px;
 	color: #cc9a9a;
 	margin-bottom: 11px;
 	transition: color 0.5s ease-out;
@@ -278,7 +277,7 @@ body {
 }
 
 .todo-list li .destroy:after {
-	content: '\1F5D1';
+	content: 'X';
 	cursor: pointer;
 }
 
@@ -336,7 +335,7 @@ body {
 }
 
 .filters li a:hover {
-	border-color: rgba(175, 47, 47, 0.1);
+	border-color: rgba(175, 47, 47, 0.4);
 }
 
 .filters li a.selected {
@@ -353,7 +352,9 @@ html .clear-completed:active {
 }
 
 .clear-completed:hover {
-	border-bottom: 1px solid rgba(175, 47, 47, 0.2);
+	background-color: #e2989a;
+	border-radius: 5px;
+	padding: 5px;
 }
 
 .info {
