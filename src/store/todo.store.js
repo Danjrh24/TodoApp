@@ -15,6 +15,7 @@ const state = {
         new Todo('Piedra de la mente'),
     ],
     filter: Filters.All,
+    pendingCount: 0,
 }
 
 const initStore = () => {
@@ -63,13 +64,12 @@ export const addTodo = ( description ) => {
  */
 
 const toggleTodo = ( todoId ) => {
-
     state.todos = state.todos.map( todo => {
         if( todo.id === todoId ) {
             todo.done = !todo.done;
         }
         return todo;
-    })
+    });
 }
 
 /**
@@ -84,7 +84,6 @@ const deleteTodo = ( todoId ) => {
 const deleteCompleted = () => {
     state.todos = state.todos.filter ( todo => !todo.done)
 }
-
 /**
  * 
  * @param {Filters} newFilter 

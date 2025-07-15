@@ -2,8 +2,7 @@ import todoStore from '../store/todo.store';
 import html from './app.html?raw';
 import { renderTodos } from './use-cases';
 import { Filters } from '../store/todo.store';
-import { addTodo } from '../store/todo.store';
-import { Todo } from './models/todo.model';
+import { updatePendingCount } from './use-cases/update-count';
 
 //Id del contenedor de los todos (<ul></ul>)
 const elementIDs = {
@@ -23,6 +22,7 @@ export const App = ( elementId ) => {
     const displayTodos = () => {
         const todos = todoStore.getTodos( todoStore.getCurrentFilter() );
         renderTodos( elementIDs.TodoList, todos );
+        updatePendingCount();
     }
 
     //Cuando la funcion App() se llama
@@ -37,6 +37,7 @@ export const App = ( elementId ) => {
     const newDescriptionInput = document.querySelector( elementIDs.NewTodoInput );
     const todoListUL = document.querySelector( elementIDs.TodoList );
     const footerList = document.querySelector( elementIDs.footerList );
+    const pendingCount = document.querySelector('#pending-count');
     //Listeners 
     newDescriptionInput.addEventListener('keydown', (event)=> {
         if ( event.keyCode !== 13 ) return;
@@ -61,18 +62,25 @@ export const App = ( elementId ) => {
 
     footerList.addEventListener( 'click', ( event ) =>{
     event.stopPropagation();
+    event.preventDefault();
     console.log({event});
     if( event.target.className === 'clear-completed' ) {
         todoStore.deleteCompleted();
-    }else if ( event.target.className === 'selected filtro' ) {
-        todoStore.getTodos();
-    } else if ( event.target.className === 'filtro completed' ) {
+    }else if ( event.target.className === 'filtro completed' ) {
         todoStore.setFilter( Filters.Completed );
-    } else if ( event.target.className === 'filtro pending' ) {
+    }else if ( event.target.className === 'filtro pending' ) {
         todoStore.setFilter( Filters.Pending );
+        console.log(todoStore.setFilter( Filters.Pending ));
+    }else {
+        todoStore.setFilter( Filters.All );
     }
     displayTodos();
     })
 
-
+    const pending = () => { 
+        let countPending = todoStore.getTodos(todoStore.Filters.Pending);
+        console.log(countPending.length);
+        pendingCount.innerHTML = countPending.length;
+    }
+    pending()
 }
