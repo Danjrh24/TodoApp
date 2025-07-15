@@ -23,6 +23,7 @@ export const App = ( elementId ) => {
         const todos = todoStore.getTodos( todoStore.getCurrentFilter() );
         renderTodos( elementIDs.TodoList, todos );
         updatePendingCount();
+        todoStore.saveStateToLocalStorage();
     }
 
     //Cuando la funcion App() se llama

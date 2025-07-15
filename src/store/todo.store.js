@@ -19,12 +19,20 @@ const state = {
 }
 
 const initStore = () => {
-    console.log(state);
+    loadStore()
     console.log('InitStore');
 }
 
 const loadStore = () => {
-    throw new Error('Not implemented');
+    if( !localStorage.getItem('state') ) return;
+    const { todos = [], filter = Filters.All, pendingCount = 0 } = JSON.parse( localStorage.getItem('state') );
+    state.todos = todos;
+    state.filter= filter;
+    state.pendingCount = pendingCount;
+}
+
+const saveStateToLocalStorage = () => {
+    localStorage.setItem('state', JSON.stringify(state) );
 }
 
 /**
@@ -106,6 +114,7 @@ export default {
     getTodos,
     initStore,
     loadStore,
+    saveStateToLocalStorage,
     setFilter,
     state,
     toggleTodo,
