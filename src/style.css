@@ -212,18 +212,53 @@ body {
 	padding: 15px 15px 15px 60px;
 	display: block;
 	line-height: 1.2;
-	transition: color 0.4s;
+	transition: all .5s ease-in-out;
 	font-weight: 400;
 	color: #4d4d4d;
 }
 
-.todo-list li.completed label {
+
+.todo-list > .completed label {
+	position: relative;
 	color: #cdcdcd;
-	text-decoration: line-through;
+	/* text-decoration: line-through; */
+}
+
+.todo-list > ::before{
+	content: "";
+	width: 0;
+	position: absolute;
+	margin: auto auto;
+	top:50%;
+	left:10%;
+	height: 3px;
+	background-color: #000;
+	z-index: 20;
+	opacity: 0;
+	transition: all .5s ease-in-out;
+}
+
+.todo-list > .completed::before{
+	content: "";
+	width: 70%;
+	position: absolute;
+	margin: auto auto;
+	top:50%;
+	left:10%;
+	height: 2px;
+	background-color: #818181;
+	z-index: 20;
+	opacity: 1;
+
+}
+
+.todo-list {
+	transition: all 3s ease-in-out;
 }
 
 .todo-list li .destroy {
-	display: none;
+	display: block;
+	color: #af5b5e;
 	position: absolute;
 	top: 0;
 	right: 10px;
@@ -234,7 +269,7 @@ body {
 	font-size: 30px;
 	color: #cc9a9a;
 	margin-bottom: 11px;
-	transition: color 0.2s ease-out;
+	transition: color 0.5s ease-out;
 }
 
 .todo-list li .destroy:hover {
@@ -242,12 +277,8 @@ body {
 }
 
 .todo-list li .destroy:after {
-	content: 'X';
+	content: '\1F5D1';
 	cursor: pointer;
-}
-
-.todo-list li:hover .destroy {
-	display: block;
 }
 
 .todo-list li .edit {

@@ -54,9 +54,16 @@ export const App = ( elementId ) => {
         if(event.target.className === "destroy"){
             todoStore.deleteTodo( elementFather.getAttribute( 'data-id' ) );
         }else{
+            elementFather.classList.add('completed');
+            console.log(elementFather);
             todoStore.toggleTodo( elementFather.getAttribute( 'data-id' ) );
         }
-        displayTodos();
+        setTimeout( () => {
+            displayTodos()
+        },500)
+
+        
+        // displayTodos();
     } );
 
     footerList.addEventListener( 'click', ( event ) =>{
