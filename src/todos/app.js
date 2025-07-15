@@ -37,7 +37,6 @@ export const App = ( elementId ) => {
     const newDescriptionInput = document.querySelector( elementIDs.NewTodoInput );
     const todoListUL = document.querySelector( elementIDs.TodoList );
     const footerList = document.querySelector( elementIDs.footerList );
-    const pendingCount = document.querySelector('#pending-count');
     //Listeners 
     newDescriptionInput.addEventListener('keydown', (event)=> {
         if ( event.keyCode !== 13 ) return;
@@ -70,17 +69,9 @@ export const App = ( elementId ) => {
         todoStore.setFilter( Filters.Completed );
     }else if ( event.target.className === 'filtro pending' ) {
         todoStore.setFilter( Filters.Pending );
-        console.log(todoStore.setFilter( Filters.Pending ));
     }else {
         todoStore.setFilter( Filters.All );
     }
     displayTodos();
     })
-
-    const pending = () => { 
-        let countPending = todoStore.getTodos(todoStore.Filters.Pending);
-        console.log(countPending.length);
-        pendingCount.innerHTML = countPending.length;
-    }
-    pending()
 }
