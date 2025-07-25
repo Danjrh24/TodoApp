@@ -12,12 +12,13 @@ Una aplicación de lista de tareas desarrollada con JavaScript puro, como parte 
 
 ## 🛠️ Tecnologías utilizadas
 
-- HTML
-- CSS
-- JavaScript (vanilla)
-- Módulos ES6
-- Local Storage
-- Vite.js
+![ES6 Modules](https://img.shields.io/badge/ES6_Modules-black?style=flat-square&logo=javascript&logoColor=yellow)
+![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
+![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
+![Vite](https://img.shields.io/badge/Vite-black?style=flat-square&logo=vite&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-black?style=flat-square&logo=visual-studio-code&logoColor=white)
+![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat-square&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-black?style=flat-square&logo=css3&logoColor=white)
 
 ## 🧠 Conceptos aplicados
 
@@ -29,9 +30,11 @@ Una aplicación de lista de tareas desarrollada con JavaScript puro, como parte 
 
 ## 🔧 Modificaciones personales
 
-- Personalización visual del diseño `uso de trancisiones`
+- Personalización visual del diseño
 - Ajustes en el estilo y estructura de componentes
 - Implementé delegación de eventos usando event.target para identificar y manejar distintas acciones (como filtrar o eliminar tareas) dentro de un único listener, optimizando el control de eventos en la interfaz.
+
+>Modificaciones adicionales proximamente...
 
 ## 🚀 Demo
 
