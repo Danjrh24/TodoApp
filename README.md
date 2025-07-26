@@ -12,13 +12,12 @@ Una aplicación de lista de tareas desarrollada con JavaScript puro, como parte 
 
 ## 🛠️ Tecnologías utilizadas
 
-![ES6 Modules](https://img.shields.io/badge/ES6_Modules-black?style=flat-square&logo=javascript&logoColor=yellow)
-![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)
-![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
-![Vite](https://img.shields.io/badge/Vite-black?style=flat-square&logo=vite&logoColor=white)
-![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-black?style=flat-square&logo=visual-studio-code&logoColor=white)
-![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat-square&logo=html5)
-![CSS3](https://img.shields.io/badge/CSS3-black?style=flat-square&logo=css3&logoColor=white)
+<p align="left">
+ <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="36" height="36" alt="HTML5" /></a>
+<a href="https://www.w3.org/TR/CSS/#css" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="36" height="36" alt="CSS3" /></a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="36" height="36" alt="JavaScript" /></a>
+<a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer"><img src="https://www.svgrepo.com/show/452210/git.svg" width="36" height="36" alt="Git" /></a>
+<a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer"><img src="https://logospng.org/download/vite-js/vite-js-4096-logo.png" width="36" height="36" alt="Vite" /></a>
 
 ## 🧠 Conceptos aplicados
 
